@@ -39,11 +39,10 @@ TEST(stack_demonstration, set_data_with_class) {
   // after call of this function Stack Pointer (SP)
   // will go up and left some data under SP
   initialazeObject();
-  
-  // when a new object initialized, all the values will take data left 
+
+  // when a new object initialized, all the values will take data left
   // on the stack from the previous function call
   withoutInitialization(ss);
-  
 
   ASSERT_STREQ(ss.str().c_str(), "Object A:{1, 2, 3}\n");
 }
@@ -55,7 +54,7 @@ TEST(stack_demonstration, set_data_with_array) {
   // will go up and left some data under SP
   initialazeArray();
 
-  // when a new object initialized, all the values will take data left 
+  // when a new object initialized, all the values will take data left
   // on the stack from the previous function call
   withoutInitialization(ss);
 
