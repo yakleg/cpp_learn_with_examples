@@ -60,3 +60,14 @@ TEST(stack_demonstration, set_data_with_array) {
 
   ASSERT_STREQ(ss.str().c_str(), "Object A:{100, 200, 300}\n");
 }
+
+TEST(stack_demonstration, uninitialazed_data) {
+  std::stringstream ss;
+  // when a new object initialized, all the values will take random data left on the stack
+  withoutInitialization(ss);
+
+  // Here we are faced with undefined behavior. Uninitialized scalar
+  // see: https://en.cppreference.com/w/cpp/language/ub
+  ASSERT_STRNE(ss.str().c_str(), "Object A:{1, 2, 3}\n");
+  ASSERT_STRNE(ss.str().c_str(), "Object A:{100, 200, 300}\n");
+}

@@ -11,6 +11,7 @@ include(${PROJECT_SOURCE_DIR}/cmake/gtest.cmake)
 # Include cmake utilites
 include(${PROJECT_SOURCE_DIR}/cmake/utilities.cmake)
 
+add_example("c_arrays" ${EXAMPLES_ROOT}/c_arrays/c_arrays_test.cpp)
 add_example("polymorphism_demonstration" ${EXAMPLES_ROOT}/concepts/oop/polymorphism/poliymorphism_test.cpp)
 add_example("stack_demonstration" ${EXAMPLES_ROOT}/concepts/stack/stack_test.cpp)
 

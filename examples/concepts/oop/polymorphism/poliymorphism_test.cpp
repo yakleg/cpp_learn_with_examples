@@ -23,10 +23,12 @@ class Animal {
   Animal(){};
 };
 
+// Class Cat extends Animal interface
 class Cat : public Animal {
  public:
   Cat(int age, int weight) : m_age{age}, m_weight{weight} {}
 
+  // We have to override all the pure virtual methods of the base class (Animal)
   virtual std::string MakeNoise() const override { return "meow"; };
   virtual int age() const override { return m_age; };
   virtual int weight() const override { return m_weight; };
@@ -35,10 +37,12 @@ class Cat : public Animal {
   const int m_age, m_weight;
 };
 
+// Class Dog extends Animal interface
 class Dog : public Animal {
  public:
   Dog(int age, int weight) : m_age{age}, m_weight{weight} {};
 
+  // We have to override all the pure virtual methods of the base class (Animal)
   virtual std::string MakeNoise() const override { return "WOF WOF!"; };
   virtual int age() const override { return m_age; };
   virtual int weight() const override { return m_weight; };
@@ -47,8 +51,8 @@ class Dog : public Animal {
   const int m_age, m_weight;
 };
 
-// Takes pointer to base object Animal
-// returns report about the animal
+// Takes a pointer to the base object Animal
+// returns a report about the animal
 std::string MakeDoctorReport(const Animal::Ptr& animal) {
   std::stringstream ss;
   ss << "an animal age: " << animal->age() << ", weight: " << animal->weight()
