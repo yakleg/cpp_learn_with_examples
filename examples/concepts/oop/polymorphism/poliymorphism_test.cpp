@@ -11,7 +11,7 @@ class Animal {
   Animal(const Animal&) = delete;
   Animal& operator=(const Animal&) = delete;
 
-  virtual ~Animal(){};  // MUST contain implementation of virtual destructor
+  virtual ~Animal() = default;  // MUST contain implementation of virtual destructor
 
   virtual std::string MakeNoise() const = 0;
   virtual int age() const = 0;
@@ -20,7 +20,9 @@ class Animal {
   using Ptr = std::unique_ptr<Animal>;
 
  protected:
-  Animal(){};
+  // One of the constructors was defined
+  // We have to put implicit declaration of default constructor
+  Animal() = default;
 };
 
 // Class Cat extends Animal interface
